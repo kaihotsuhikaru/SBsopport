@@ -5,12 +5,141 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
     <%= yield %>
+    <header class="navbar">
+      <div class="container">
+        <nav class="logo nav navbar-nav navbar-left">
+          <%= link_to image_tag('logo.png',:width => "170",:height => "40", class: "pull-right"), root_path %>
+        </nav>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to user_path(current_user) do %>
+                <%= attachment_image_tag(current_user, :image, size: "35x35", fallback: "noImg.jpg", size: "35x35") %>
+                <span><%= current_user.name %></span>
+              <% end %>
+            </li>
+            <li></li>
+            <li class="header_button">
+              <%= link_to edit_user_path(current_user), data: {"turbolinks"=>false} do %>
+                <i class="fas fa-user-cog">設定</i>
+              <% end %>
+            </li>
+            <li class="header_button">
+              <%= link_to tasks_path do %>
+                <i class="fas fa-tasks">タスク</i>
+              <% end %>
+            </li>
+            <li class="header_button">
+              <%= link_to about_path do %>
+                <i class="fas fa-question-circle">サイト紹介</i>
+              <% end %>
+            </li>
+            <li class="header_button">
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fas fa-user-times">ログアウト</i>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="header_button">
+              <%= link_to new_user_registration_path do%>
+                <i class="fas fa-user-plus">新規登録</i>
+              <% end %>
+            </li>
+            <li class="header_button">
+              <%= link_to about_path do %>
+                <i class="fas fa-question-circle">サイト紹介</i>
+              <% end %>
+            </li>
+            <li class="header_button">
+              <%= link_to new_user_session_path do %>
+                <i class="fas fa-user-check">ログイン</i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <main>
+    </header>
+    <div class="responsive-navbar">
+      <div id="sp-fixed-menu" class="for-sp">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= image_tag('logo.png',:width => "170",:height => "40", class: "pull-center") %></li>
+          <li><%= link_to "トップ",root_path %></li>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to user_path(current_user) do %>
+                <%= attachment_image_tag(current_user, :image, size: "35x35", fallback: "noImg.jpg", size: "35x35") %>
+                <span><%= current_user.name %></span>
+              <% end %>
+            </li>
+            <li></li>
+            <li class="header_button">
+              <%= link_to tasks_path do %>
+                <i class="fas fa-tasks"> タスク</i>
+              <% end %>
+            </li>
+            <li class="header_button">
+              <%= link_to about_path do %>
+                <i class="fas fa-question-circle"> サイト紹介</i>
+              <% end %>
+            </li>
+            <li class="header_button">
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fas fa-user-times"> ログアウト</i>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="header_button">
+              <%= link_to new_user_registration_path do%>
+                <i class="fas fa-user-plus"> 新規登録</i>
+              <% end %>
+            </li>
+            <li class="header_button">
+              <%= link_to about_path do %>
+                <i class="fas fa-question-circle"> サイト紹介</i>
+              <% end %>
+            </li>
+            <li class="header_button">
+              <%= link_to new_user_session_path do %>
+                <i class="fas fa-user-check"> ログイン</i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+    </div>
+    
+    <div id="hm-icon">
+      <a class="menu-trigger" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
+    </div>
+
+    </div>
+      <div class="container">
+        <p id="notice"><%= notice %></p>
+        <%= yield %><br>
+      </div><br>
+
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/menu.js"></script>
+
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 class="text-right mail"><i class="fas fa-envelope"></i>  gutelist@gmail.com </h3><br>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
