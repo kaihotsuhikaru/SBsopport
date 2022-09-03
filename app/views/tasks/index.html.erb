@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <h2>タスク一覧</h2>
+    </div>
+    <div class="create-task col-xs-4">
+      <%= link_to new_task_path,class: "btn btn-warning btn-block", data: {"turbolinks"=>false} do %>
+        <i class="fas fa-plus">タスクを作成</i>
+      <% end %>
+    </div>
+  </div>
+  
+</div>
