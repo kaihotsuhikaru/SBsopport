@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   get "/about" => "tasks#about", as: "about"
 
-  devise_for :users, :controllers => {:registrations => 'users/registrations'}
+  devise_for :users#, :controllers => {:registrations => 'users/registrations'}
   
   resources :tasks, only: [:top, :about, :index, :new, :create, :edit, :update, :change, :complete_tasks] do
     member do
