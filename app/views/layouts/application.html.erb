@@ -10,7 +10,6 @@
   </head>
 
   <body>
-    <%= yield %>
     <header class="navbar">
       <div class="container">
         <nav class="logo nav navbar-nav navbar-left">
@@ -20,7 +19,7 @@
           <% if user_signed_in? %>
             <li>
               <%= link_to user_path(current_user) do %>
-                <%= attachment_image_tag(current_user, :image, size: "35x35", fallback: "noImg.jpg", size: "35x35") %>
+                <%#= attachment_image_tag(current_user, :image, size: "35x35", fallback: "noImg.jpg", size: "35x35") %>
                 <span><%= current_user.name %></span>
               <% end %>
             </li>
@@ -75,7 +74,7 @@
           <% if user_signed_in? %>
             <li>
               <%= link_to user_path(current_user) do %>
-                <%= attachment_image_tag(current_user, :image, size: "35x35", fallback: "noImg.jpg", size: "35x35") %>
+                <%#= attachment_image_tag(current_user, :image, size: "35x35", fallback: "noImg.jpg", size: "35x35") %>
                 <span><%= current_user.name %></span>
               <% end %>
             </li>
