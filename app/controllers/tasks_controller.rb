@@ -8,11 +8,11 @@ class TasksController < ApplicationController
   end
   
   def index
-    @completed_tasks = current_user.completed_tasks
-    tasks = current_user.tasks
-    @active_tasks = tasks.where(is_active: true)
-    passive_tasks = tasks.where(is_active: false)
-    @passive_tasks = passive_tasks.where('updated_at > ?', Date.today)
+    #@completed_tasks = current_user.completed_tasks
+    #tasks = current_user.tasks
+    #@active_tasks = tasks.where(is_active: true)
+    #passive_tasks = tasks.where(is_active: false)
+    #@passive_tasks = passive_tasks.where('updated_at > ?', Date.today)
   end
 
   def new
