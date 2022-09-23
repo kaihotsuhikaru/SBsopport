@@ -32,3 +32,13 @@
       <% end %>
     </div><br>
   </div>
+  
+  <%= month_calendar events: @active_tasks do |date, active_tasks| %>
+  <%= date.day %>
+
+  <% active_tasks.each do |active_task| %>
+    <div>
+      <%= active_task.title %>
+    </div>
+  <% end %>
+  <% end %>

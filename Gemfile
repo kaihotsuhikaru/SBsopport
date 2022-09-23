@@ -64,3 +64,5 @@ gem 'jquery-rails'
 gem "net-smtp"
 
 gem "kaminari"
+
+gem 'simple_calendar', '~> 2.0' 

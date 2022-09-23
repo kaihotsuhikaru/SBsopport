@@ -63,6 +63,9 @@ ActiveRecord::Schema.define(version: 2022_09_07_102113) do
   create_table "tasks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.boolean "is_active", default: true, null: false
+    t.string "title"
+    t.text "content"
+    t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_tasks_on_user_id"

@@ -1,1 +1,37 @@
-<!--<a></a>-->
+<div class="container">
+  <div class="row">
+    <div class="top-text text-center col-xs-12">
+      <div class="logo-top">
+        <%#= image_tag("logo.png",:width => "250",:height => "60") %>
+      </div>
+      <h2 class="top-text">スケジュールとタスク管理の効率化！</h2>
+      <h3 class="top-text">
+          何年も英語に触れているのに苦手意識が抜けない、上達しない。<br>
+          それは、英語を他人事にしているからではないでしょうか。<br>
+          自分事であるタスク管理に英語を取り入れて、<br>
+          英語を身近なものにしていきませんか？
+      </h3>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="col-xs-6">
+      <%= link_to new_user_registration_path, class: "btn btn-warning btn-lg btn-block" do %>
+        <i class="fas fa-user-plus">新規登録</i>
+      <% end %>
+    </div>
+    <div class="col-xs-6">
+      <%= link_to new_user_session_path, class: "btn btn-info btn-lg btn-block" do %>
+        <i class="fas fa-user-check">ログイン</i>
+      <% end %>
+    </div>
+  </div><br>
+  <div class="row">
+    <div class="col-xs-4"></div>
+    <div class="text-center col-xs-4">
+      <%= link_to about_path do %>
+        <h2>サイト紹介 <%#= image_tag("about.png", size: "30x30") %></h2><br>
+      <% end %>
+    </div><br>
+    <div class="col-xs-4"></div>
+  </div><br>
+</div><br>
