@@ -2,6 +2,15 @@
 <%= form_for(@task) do |f| %>
   <div><%= f.label :title %></div>
   <div><%= f.text_field :title %></div>
+  
+  <div><%= f.label :start_time %></div>
+  <div><%= f.datetime_field :start_time %></div>
+
+  <div><%= f.label :task_ja %></div>
+  <div><%= f.text_field :task_ja %></div>
+
+  <div><%= f.label :task_en %></div>
+  <div><%= f.text_field :task_en %></div>
   <div><%= f.submit %></div>
 <% end %>
 <%= link_to '戻る', tasks_path %>

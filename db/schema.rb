@@ -64,6 +64,9 @@ ActiveRecord::Schema.define(version: 2022_09_07_102113) do
     t.integer "user_id", null: false
     t.boolean "is_active", default: true, null: false
     t.string "title"
+    t.string "task_ja"
+    t.string "task_en"
+    t.integer "rating"
     t.text "content"
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false

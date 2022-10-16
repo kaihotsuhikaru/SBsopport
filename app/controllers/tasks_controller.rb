@@ -3,13 +3,14 @@ class TasksController < ApplicationController
 
   def top
   end
-  
+
   def about
   end
-  
+
   def index
     #@completed_tasks = current_user.completed_tasks
     #tasks = current_user.tasks
+
     @active_tasks = Task.where(is_active: true)
     #passive_tasks = tasks.where(is_active: false)
     #@passive_tasks = passive_tasks.where('updated_at > ?', Date.today)
@@ -32,7 +33,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    redirect_to complete_tasks_path
+    redirect_to tasks_path
   end
 
   def edit
@@ -81,10 +82,10 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:is_active)
+    params.require(:task).permit(:is_active, :title, :task_ja, :task_en, :start_time)
   end
 
   def tasknew_params
-    params.permit(:task_id, :start_time)
+    params.permit(:task_id, :start_time, :title, :task_ja, :task_en)
   end
 end
