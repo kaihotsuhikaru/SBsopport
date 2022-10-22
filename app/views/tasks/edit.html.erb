@@ -1,10 +1,18 @@
 <h1>タスクの編集</h1>
 
 <%= form_for(@task) do |f| %>
-  <%= f.label :content, 'タスク' %>
-  <%= f.text_field :content %>
+  <div><%= f.label :title %></div>
+  <div><%= f.text_field :title %></div>
 
-  <%= f.submit '投稿' %>
+  <div><%= f.label :start_time %></div>
+  <div><%= f.datetime_field :start_time %></div>
+
+  <div><%= f.label :content %></div>
+  <div><%= f.text_field :task_ja %></div>
+
+  <div><%= f.label :task_en %></div>
+  <div><%= f.text_field :task_en %></div>
+  <div><%= f.submit '編集' %></div>
 <% end %>
 
 <%= link_to '削除', @task, method: :delete, data:{ confirm: '本当によろしいですか？'} %>

@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
+gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -57,9 +58,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
-# gem 'bootstrap', '~> 4.3.1'
+gem 'bootstrap', '~> 4.3.1'
 
-# gem 'jquery-rails'
+gem 'jquery-rails'
 
 # gem "net-smtp"
 
@@ -71,6 +72,8 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem "sassc-rails"
 
 gem "net-smtp"
 gem "net-pop"

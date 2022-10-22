@@ -1,5 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
 
 .simple-calendar {
   .day {}
@@ -23,6 +24,10 @@
   .current-month {}
 
   .has-events {}
+}
+
+* {
+  font-family: 'Kosugi Maru', sans-serif;
 }
 
 

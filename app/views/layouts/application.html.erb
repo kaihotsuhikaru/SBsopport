@@ -5,65 +5,72 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header class="navbar">
-      <div class="container">
-        <nav class="logo nav navbar-nav navbar-left">
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-light py-4 bg-success">
+        <div class="container">
           <%#= link_to image_tag('logo.png',:width => "170",:height => "40", class: "pull-right"), root_path %>
-        </nav>
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-            <li>
-              <%= link_to user_path(current_user) do %>
-                <%#= attachment_image_tag(current_user, :image, size: "35x35", fallback: "noImg.jpg", size: "35x35") %>
-                <span><%= current_user.name %></span>
-              <% end %>
-            </li>
-            <li></li>
-            <li class="header_button">
-              <%= link_to edit_user_path(current_user), data: {"turbolinks"=>false} do %>
-                <i class="fas fa-user-cog">設定</i>
-              <% end %>
-            </li>
-            <li class="header_button">
-              <%= link_to tasks_path do %>
-                <i class="fas fa-tasks">タスク</i>
-              <% end %>
-            </li>
-            <li class="header_button">
-              <%= link_to about_path do %>
-                <i class="fas fa-question-circle">サイト紹介</i>
-              <% end %>
-            </li>
-            <li class="header_button">
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-user-times">ログアウト</i>
-              <% end %>
-            </li>
-          <% else %>
-            <li class="header_button">
-              <%= link_to new_user_registration_path do%>
-                <i class="fas fa-user-plus">新規登録</i>
-              <% end %>
-            </li>
-            <li class="header_button">
-              <%= link_to about_path do %>
-                <i class="fas fa-question-circle">サイト紹介</i>
-              <% end %>
-            </li>
-            <li class="header_button">
-              <%= link_to new_user_session_path do %>
-                <i class="fas fa-user-check">ログイン</i>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div>
+
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to user_path(current_user) do %>
+                  <%#= attachment_image_tag(current_user, :image, size: "35x35", fallback: "noImg.jpg", size: "35x35") %>
+                  <span><%= current_user.name %></span>
+                <% end %>
+              </li>
+              <li></li>
+              <li class="nav-item ml-3">
+                <%= link_to edit_user_path(current_user), class: "text-light", data: {"turbolinks"=>false} do %>
+                  <i class="fas fa-user-cog text-light"></i>設定
+                <% end %>
+              </li>
+              <li class="nav-item ml-3">
+                <%= link_to tasks_path, class: "text-light" do %>
+                  <i class="fas fa-tasks"></i>タスク
+                <% end %>
+              </li>
+              <li class="nav-item ml-3">
+                <%= link_to about_path, class: "text-light" do %>
+                  <i class="fas fa-question-circle"></i>サイト紹介
+                <% end %>
+              </li>
+              <li class="nav-item ml-3">
+                <%= link_to destroy_user_session_path, class: "text-light", method: :delete do %>
+                  <i class="fas fa-user-times"></i>ログアウト
+                <% end %>
+              </li>
+            <% else %>
+              <li class="nav-item ml-3">
+                <%= link_to new_user_registration_path, class: "text-light" do%>
+                <i class="fas fa-user-plus"></i>新規登録
+                <% end %>
+              </li>
+              <li class="nav-item ml-3">
+                <%= link_to about_path, class: "text-light" do %>
+                  <i class="fas fa-question-circle"></i>サイト紹介
+                <% end %>
+              </li>
+              <li class="nav-item ml-3">
+                <%= link_to new_user_session_path, class: "text-light" do %>
+                  <i class="fas fa-user-check"></i>ログイン
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <main>
@@ -74,18 +81,8 @@
         <%= yield %><br>
       </div><br>
 
-    <!--<script src="javascripts/jquery.min.js"></script>-->
-    <!--<script src="javascripts/menu.js"></script>-->
-
     </main>
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-
-          </div>
-        </div>
-      </div>
+    <footer id="footer" class="border-top bg-secondary"style="height:50px;margin-top:500px;">
     </footer>
   </body>
 </html>

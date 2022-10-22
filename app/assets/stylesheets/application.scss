@@ -12,8 +12,37 @@
  *
  */
 @import "bootstrap";
-@import "simple_calendar";
+@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
+
+.simple-calendar {
+  .day {}
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}
+
 
 body {
   background-image: image-url("hoge.jpg");
+}
+
+* {
+  font-family: 'Kosugi Maru', sans-serif;
 }
