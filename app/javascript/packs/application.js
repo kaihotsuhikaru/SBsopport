@@ -13,7 +13,12 @@ import "popper.js";
 import "bootstrap";
 import "packs/stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
+import './preview.js'
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener('DOMContentLoaded', function(){
+  console.log("aaaaa");
+});
