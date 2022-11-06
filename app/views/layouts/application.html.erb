@@ -14,7 +14,7 @@
     <header class="sticky-top">
       <nav class="navbar navbar-expand-lg navbar-light py-4 bg-success">
         <div class="container">
-          <%#= link_to image_tag('logo.png',:width => "170",:height => "40", class: "pull-right"), root_path %>
+          <%= link_to image_tag('logo.png',:width => "100",:height => "100", class: "pull-right"), root_path %>
 
           <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,7 +25,7 @@
             <% if user_signed_in? %>
               <li>
                 <%= link_to user_path(current_user) do %>
-                  <%#= attachment_image_tag(current_user, :image, size: "35x35", fallback: "noImg.jpg", size: "35x35") %>
+                  <%= image_tag(current_user.image.variant(resize: "30x30").processed) if current_user.image.attached? %>
                   <span><%= current_user.name %></span>
                 <% end %>
               </li>
@@ -72,14 +72,15 @@
         </div>
       </nav>
     </header>
+    <div class="notifications">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: key) %>
+      <% end %>
+    </div>
 
     <main>
 
-    </div>
-      <div class="container">
-        <p id="notice"><%= notice %></p>
-        <%= yield %><br>
-      </div><br>
+    <%= yield %>
 
     </main>
     <footer id="footer" class="border-top bg-secondary"style="height:50px;margin-top:500px;">

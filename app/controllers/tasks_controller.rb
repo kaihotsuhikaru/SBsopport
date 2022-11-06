@@ -24,8 +24,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.user_id = current_user.id
     if @task.save
-      redirect_to '/tasks'
+      redirect_to tasks_path, notice: 'タスクの作成が完了しました'
     else
+      flash.now[:alert] = 'メッセージを入力してください。'
       render '/tasks/new'
     end
   end

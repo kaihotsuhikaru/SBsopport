@@ -52,3 +52,16 @@ body {
 * {
   font-family: 'Kosugi Maru', sans-serif;
 }
+
+.notifications {
+  color: white;
+  text-align: center;
+
+  .notice {
+    background-color: lightBlue;
+  }
+
+  .alert {
+    background-color: orange;
+  }
+}
