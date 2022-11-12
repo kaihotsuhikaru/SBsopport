@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   has_one_attached :image
 
-  # validates :name, presence: true, length: { in: 2..15}
+  validates :name, presence: true
   # validates :introduction, length: {maximum: 50}
 
   # has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
