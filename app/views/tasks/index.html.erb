@@ -19,7 +19,7 @@
       <% @active_tasks.each do |task| %>
         <div class="col-sm-4">
           <div class="task d<%= task.rating %> text-center">
-            <div class="main_task"><%= task.task_ja %><br></div>
+            <div class="main_task"><%= task.content %><br></div>
             <%= link_to edit_task_path(task.id), data: {"turbolinks"=>false} do %>
               <i class="main_task fas fa-edit"></i>
             <% end %>

@@ -83,10 +83,10 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:is_active, :title, :task_ja, :task_en, :start_time)
+    params.require(:task).permit(:is_active, :title, :content, :category, :start_time)
   end
 
   def tasknew_params
-    params.permit(:task_id, :start_time, :title, :task_ja, :task_en)
+    params.permit(:task_id, :start_time, :title, :content, :category)
   end
 end
