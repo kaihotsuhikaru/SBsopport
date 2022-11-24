@@ -1,7 +1,7 @@
 <div class="cover-new">
   <div class="container">
     <div class="row justify-content-center">
-      <h1 class="font-weight-normal mt-3">タスクの編集</h1>
+      <h2 class="font-weight-normal mt-3">タスクの編集</h2>
     </div>
     <div class="row justify-content-center">
       <%= form_with(model: @task) do |f| %>
@@ -32,23 +32,3 @@
     </div>
   </div>
 </div>
-
-<!--<h1>タスクの編集</h1>-->
-
-<!--<%= form_for(@task) do |f| %>-->
-<!--  <div><%= f.label :タイトル %></div>-->
-<!--  <div><%= f.text_field :title %></div>-->
-
-<!--  <div><%= f.label :日付 %></div>-->
-<!--  <div><%= f.datetime_field :start_time %></div>-->
-
-<!--  <div><%= f.label :内容 %></div>-->
-<!--  <div><%= f.text_field :content %></div>-->
-
-<!--  <div><%= f.label :カテゴリー %></div>-->
-<!--  <div><%= f.text_field :category %></div>-->
-<!--  <div><%= f.submit '編集' %></div>-->
-<!--<% end %>-->
-
-<!--<%= link_to '削除', @task, method: :delete, data:{ confirm: '本当によろしいですか？'} %>-->
-<!--<%= link_to '戻る', tasks_path %>-->

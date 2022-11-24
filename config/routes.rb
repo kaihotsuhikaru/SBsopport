@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   root 'tasks#top'
 
   get "/about" => "tasks#about", as: "about"
+  get '/users/:id', to: 'users#show', as: 'user'
 
-  resources :tasks, only: [:top, :about, :index, :new, :create, :edit, :update, :change, :complete_tasks] do
+  resources :tasks, only: [:top, :about, :index, :show, :new, :create, :edit, :update, :change, :complete_tasks] do
     member do
       patch "/complete" => "tasks#change", as: "change"
       delete "/" => "tasks#destroy", as: "delete"

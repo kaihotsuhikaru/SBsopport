@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, except: [:top, :about]
+  before_action :set_beginning_of_week
 
   def top
   end
@@ -11,9 +12,12 @@ class TasksController < ApplicationController
     #@completed_tasks = current_user.completed_tasks
     #tasks = current_user.tasks
 
-    @active_tasks = Task.where(is_active: true)
+    @active_tasks = current_user.tasks.where(is_active: true)
     #passive_tasks = tasks.where(is_active: false)
     #@passive_tasks = passive_tasks.where('updated_at > ?', Date.today)
+  end
+
+  def show
   end
 
   def new
@@ -88,5 +92,9 @@ class TasksController < ApplicationController
 
   def tasknew_params
     params.permit(:task_id, :start_time, :title, :content, :category)
+  end
+
+  def set_beginning_of_week
+    Date.beginning_of_week = :sunday
   end
 end

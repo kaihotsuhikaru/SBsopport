@@ -25,22 +25,35 @@
 .simple-calendar {
   .day {}
 
-  .wday-0 {}
+  .wday-0 a {
+  color: red;
+}
   .wday-1 {}
   .wday-2 {}
   .wday-3 {}
   .wday-4 {}
   .wday-5 {}
-  .wday-6 {}
-
-  .today {}
+  .wday-6 a {
+   color: blue;
+}
+　.today + .future a {
+   color: #ffffff;
+   background-color: orange;
+ + .future a {
+     color: #ffffff;
+     background-color: orange;
+ }
+}
   .past {}
-  .future {}
 
   .start-date {}
 
-  .prev-month {}
-  .next-month { }
+  .prev-month a {
+  display: none;
+}
+.next-month a {
+  display: none;
+}
   .current-month {}
 
   .has-events {}

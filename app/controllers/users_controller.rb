@@ -1,14 +1,14 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def after_sign_in_path_for(resource)
     tasks_root_path
   end
-  
+
   def after_sign_out_path_for(resource)
     new_user_session_path
   end
-  
+
   def index
     @users = User.all
     @users = User.page(params[:page]).per(15)
@@ -51,10 +51,10 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'show_follow'
   end
-  
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :image)
+    params.require(:user).permit(:name, :introduction, :image,)
   end
 end

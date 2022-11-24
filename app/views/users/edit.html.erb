@@ -1,36 +1,38 @@
-<div class="container">
-  <% if @user.errors.any? %>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li>error <%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-<h2 class="text-center"><i class="fas fa-user-cog"></i> ユーザー情報</h2><br>
-  <div class="row">
-    <div class="main_group col-xs-12">
-      <div class="col-sm-4">
-        <%= form_with model: @user, local: true do |f| %>
-        <h4><i class="fas fa-image"></i> <%= f.label "プロフィール画像" %></h4>
-        <div class="click-upload">
-          <p>クリックしてファイルをアップロード</p>
-          <%= f.file_field :image, id:"idea-image" %>
+<div class="cover-new">
+  <div class="container">
+    <% if @user.errors.any? %>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li>error <%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <div class="row justify-content-center">
+      <h2 class="text-center mt-3">
+        <i class="fas fa-user-cog">
+        </i> ユーザー編集</h2><br>
+    </div>
+    <div class="row justify-content-center">
+      <%= form_with(model: @user) do |f| %>
+        <div class="form-group">
+          <label class="form-label">ユーザー名</label>
+          <%= f.text_field :name, class: "form-control" %>
         </div>
-        <div id="image"></div>
-      </div><br>
-      <div class="col-sm-8">
-        <h4><i class="fas fa-user"></i> <%= f.label "ユーザー名" %></h4>
-        <%= f.text_field :name %>
-      </div><br>
-      <div class="col-sm-8">
-        <h4><i class="fas fa-pen-nib"></i> <%= f.label "プロフィール文" %></h4>
-        <%= f.text_area :introduction %>
-      </div>
-      <div class="row">
-        <div class="text-right col-sm-12">
-        <%= f.submit "保存", class: "btn btn-primary btn-lg" %>
+        <div class="form-group">
+          <label class="form-label">クリックしてファイルをアップロード</label>
+          <div>
+            <%= f.file_field :image, id:"idea-image" %>
+          </div>
+          <div id="image"></div>
         </div>
-      </div>
+        <div class="form-group">
+          <label class="form-label">プロフィール文</label>
+          <%= f.text_area :introduction, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit '保存', class: "btn btn-primary" %>
+        </div>
+        <%= link_to '戻る', tasks_path, class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
